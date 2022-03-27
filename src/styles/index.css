@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply overflow-hidden min-h-screen font-primary bg-mainBg;
+  }
+}
+
+@layer components {
+  .wrapper {
+    @apply px-6 max-w-7xl mx-auto;
+  }
+
+  .btn-rounded {
+    @apply text-white bg-primary;
+  }
+
+  .logo-white {
+    path {
+      fill: white;
+    }
+  }
+
+  /*  */
+  .slider-container {
+    width: 100%;
+  }
+
+  .slider {
+    &__input {
+      &::-webkit-slider-thumb {
+        z-index: 10000;
+        @apply appearance-none w-20 h-20 relative cursor-pointer border-2 border-primary;
+      }
+      @apply appearance-none w-full h-2 rounded-full bg-emptySlider hover:opacity-100 outline-none opacity-75 transition;
+    }
+
+    &__rangeThumb {
+      background-image: url("/icon-slider.svg");
+      background-size: 60%;
+      z-index: 100;
+      box-shadow: 0px 30px 30px hsla(174, 86%, 45%, 0.5);
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      @apply w-8 h-8 md:w-14 md:h-14 rounded-full bg-no-repeat bg-center bg-primary absolute;
+    }
+
+    &__progressbar {
+      background-color: hsl(174, 77%, 80%);
+      position: absolute;
+      top: 60%;
+      left: 0;
+      transform: translateY(-50%);
+      border-radius: 30px;
+      @apply h-2 md:h-3;
+    }
+
+    @apply w-full relative;
+  }
+
+  .toggle {
+    &::after {
+      content: "";
+      @apply absolute h-6 w-6 top-1 left-1 rounded-full bg-white transition md:h-7 md:top-1.5 md:left-1.5 md:w-7;
+    }
+
+    &__input:checked + & {
+      @apply bg-primary;
+    }
+
+    &__input:checked + &::after {
+      left: calc(100% - 4px);
+      transform: translateX(-100%);
+    }
+    background-color: hsl(174, 86%, 45%);
+    @apply relative block cursor-pointer w-16 h-8 rounded-full bg-toggleBG transition  md:w-18 md:h-10;
+  }
+
+  .list {
+    @apply text-sm text-para mt-6 flex flex-col items-center gap-3 md:text-lg;
+
+    li {
+      @apply relative;
+
+      &::before {
+        content: url("/icon-check.svg");
+        position: absolute;
+        left: -25px;
+      }
+    }
+  }
+}
