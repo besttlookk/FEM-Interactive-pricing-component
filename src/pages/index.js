@@ -15,7 +15,7 @@ const sliderObject = [
 export default function Home() {
   const [pageView, setPageView] = useState("100k");
   const [price, setPrice] = useState("16.00");
-  const [billType, setBillType] = useState("yearly");
+  const [billType, setBillType] = useState("monthly");
   const [rangeval, setRangeval] = useState(50);
   const [progressbarWidth, setProgressbarWidth] = useState(50);
   const [thumbLeftPosition, setThumbLeftPosition] = useState(50);
